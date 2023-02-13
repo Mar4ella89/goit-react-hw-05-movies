@@ -1,22 +1,22 @@
 import MovieCardItem from './MovieCardItem/MovieCardItem';
 // import PropTypes from 'prop-types';
 
-// import css from './ImageGallery.module.css';
+import css from './MovieCardList.module.css';
 
 const MovieCardList = ({ moviesTranding }) => {
   console.log(moviesTranding);
   const elements = moviesTranding.map(
-    ({ id, title, poster_path, genresList, release_date }) => (
+    ({ id, title, name, poster_path, release_date, first_air_date }) => (
       <MovieCardItem
         key={id}
-        title={title}
+        movieId={id}
+        title={title || name}
         poster_path={poster_path}
-        genresList={genresList}
-        release_date={release_date}
+        release_date={release_date || first_air_date}
       />
     )
   );
-  return <ul>{elements}</ul>;
+  return <ul className={css.movieCardList}>{elements}</ul>;
 };
 
 // ImageGallery.propTypes = {

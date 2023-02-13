@@ -1,5 +1,10 @@
-const MovieCardItem = ({ title, poster_path, genresList, release_date }) => {
+import { Link } from 'react-router-dom';
+
+import css from './MovieCardItem.module.css';
+
+const MovieCardItem = ({ movieId, title, poster_path, release_date }) => {
   return (
+    <Link  to={`/movies/${movieId}`}>
     <li>
       <div>
         <img
@@ -8,32 +13,15 @@ const MovieCardItem = ({ title, poster_path, genresList, release_date }) => {
           loading="lazy"
         />
       </div>
-      <div>
-        <p>{title}</p>
+      <div className={css.movieCardItemTitle}>
         <p>
-          ${genresList}
-          {/* <span>{release_date.slice(0, 4)}</span> */}
-          <span>{release_date}</span>
+          <span>{title.toUpperCase()}</span>          
+          <span className={css.cardYear}>{release_date.slice(0, 4)}</span>
         </p>
       </div>
     </li>
-
-    //   <li class="table-item film-card__item" data-id="${id}">
-    //     <div class="card-thumb">
-    //       <img
-    //         src="https://image.tmdb.org/t/p/w400${poster_path}"
-    //         alt="${title}"
-    //         loading="lazy"
-    //       />
-    //     </div>
-    //     <div class="card-desc">
-    //       <p class="card-title">${title}</p>
-    //       <p class="card-info">
-    //         ${genresList}
-    //         <span class="card-year">${release_date.slice(0, 4)}</span>
-    //       </p>
-    //     </div>
-    //   </li>
+    </Link>
+    
   );
 };
 

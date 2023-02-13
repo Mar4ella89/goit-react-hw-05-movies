@@ -1,0 +1,10 @@
+.movieCardItemTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.cardYear::before {
+    content: "|";
+    margin: 0 4px;
+}

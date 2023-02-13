@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 
 import MovieCardList from 'components/MovieCardList/MovieCardList';
 
+import css from './HomePage.module.css';
+
 const HomePage = () => {
   const [moviesTranding, setMoviesTranding] = useState([]);
   const [page, setPage] = useState(1);
@@ -35,19 +37,10 @@ const HomePage = () => {
     };
     fetchTrendingMovies();
   }, [page]);
-  // , [searchQuery, page]);
 
-  //   <li onClick={showImg} className={css.galleryItem}>
-  //     <img
-  //       src={srcImg}
-  //       alt=""
-  //       loading="lazy"
-  //       className={css.ImageGalleryItemImage}
-  //     />
-  //   </li>;
   return (
     <>
-      <h1>Tranding today</h1>
+      <h1 className={css.HomePageTitle}>Tranding today</h1>
       <MovieCardList moviesTranding={moviesTranding} />
     </>
   );
