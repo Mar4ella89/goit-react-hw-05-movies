@@ -1,4 +1,3 @@
-import { trendingMovie } from 'services/movieAPI';
 // import { ImSearch } from 'react-icons/im';
 //     import { toast } from 'react-toastify';
 
@@ -54,7 +53,6 @@ import { trendingMovie } from 'services/movieAPI';
 //     };
 // }
 const MoviesPage = () => {
-  trendingMovie();
   return <h1>MoviesPage</h1>;
 };
 
