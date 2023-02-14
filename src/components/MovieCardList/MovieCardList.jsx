@@ -3,16 +3,16 @@ import MovieCardItem from './MovieCardItem/MovieCardItem';
 
 import css from './MovieCardList.module.css';
 
-const MovieCardList = ({ moviesTranding }) => {
-  console.log(moviesTranding);
-  const elements = moviesTranding.map(
+const MovieCardList = ({ movieItems }) => {
+  console.log(movieItems);
+  const elements = movieItems.map(
     ({ id, title, name, poster_path, release_date, first_air_date }) => (
       <MovieCardItem
         key={id}
         movieId={id}
-        title={title || name}
+        title={title ?? name}
         poster_path={poster_path}
-        release_date={release_date || first_air_date}
+        release_date={release_date ?? first_air_date}
       />
     )
   );

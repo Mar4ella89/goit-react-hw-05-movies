@@ -7,7 +7,7 @@ import MovieCardList from 'components/MovieCardList/MovieCardList';
 import css from './HomePage.module.css';
 
 const HomePage = () => {
-  const [moviesTranding, setMoviesTranding] = useState([]);
+  const [movieItems, setMovieItems] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const HomePage = () => {
         //   ...data.results,
         // ]);
 
-        setMoviesTranding(data.results);
+        setMovieItems(data.results);
         //   setItems(prevItems => [...prevItems, ...data.hits]);
       } catch (error) {
         //   setError(error.message);
@@ -41,7 +41,7 @@ const HomePage = () => {
   return (
     <>
       <h1 className={css.HomePageTitle}>Tranding today</h1>
-      <MovieCardList moviesTranding={moviesTranding} />
+      <MovieCardList movieItems={movieItems} />
     </>
   );
 };
