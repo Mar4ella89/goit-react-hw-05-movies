@@ -7,6 +7,8 @@ const instance = axios.create({
     api_key: 'b331236c37988e13f653df9937f18de4',
     language: 'en-US',
     include_adult: false,
+    // total_results: 10,
+    // total_pages: 10,
     // per_page: 12,
   },
 });

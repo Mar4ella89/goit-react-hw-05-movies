@@ -28,7 +28,7 @@ export const MovieSearch = () => {
   //   const [imgDetails, setImgDetails] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const searchQuery = searchParams.get('search');
+  const searchQuery = searchParams.get('searchQuery');
 
   console.log(searchQuery);
 
@@ -59,7 +59,7 @@ export const MovieSearch = () => {
   }, [searchQuery, page]);
 
   const handleFormSubmit = searchQuery => {
-    setSearchParams(searchQuery);
+    setSearchParams({searchQuery});
     setMovieItems([]);
     setPage(1);
   };
