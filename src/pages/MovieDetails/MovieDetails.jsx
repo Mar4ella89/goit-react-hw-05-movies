@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { getMovieById } from 'services/movieAPI';
 
+import css from './MovieDetails.module.css';
+
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState();
   const { movieId } = useParams();
@@ -12,7 +14,7 @@ const MovieDetails = () => {
       try {
         const data = await getMovieById(movieId);
         setMovieDetails(data);
-      } catch ({response}) {
+      } catch ({ response }) {
         console.log(response.data.message);
         //   setError(error.message);
       } finally {
@@ -25,40 +27,42 @@ const MovieDetails = () => {
   console.log(movieDetails);
 
   return (
-    <>
-    <div >
-      <img width={340}
-         src={`https://image.tmdb.org/t/p/w400${movieDetails?.poster_path}`}
-        alt={movieDetails?.title} />
-        </div>
-    <div>
-      <h2>{movieDetails?.title.toUpperCase()}</h2>
-      <div>
-        <div>
-          <p>Vote / Votes</p>
-          <p>
-            <span>{movieDetails?.vote_average}</span>
-            <span> / </span>
-            <span>{movieDetails?.vote_count}</span>
-          </p>
-        </div>
-        <div>
-          <p>Popularity</p>
-          <p>{movieDetails?.popularity}</p>
-        </div>
-        <div>
-          <p>Original Title</p>
-          <p>{movieDetails?.original_title.toUpperCase()}</p>
-        </div>
-        <div>
-          <p>Genre</p>
-          <p>{movieDetails?.genres.map(genre => genre.name).join(', ')}</p>
-        </div>
+    <div className={css.wrapper}>
+      <div className={css.wrapperImg}>
+        <img
+          // width={640}
+          src={`https://image.tmdb.org/t/p/w500${movieDetails?.poster_path}`}
+          alt={movieDetails?.title}
+        />
       </div>
-      <h3>About</h3>
-      <p>{movieDetails?.verview}</p>
+      <div className={css.wrapperDetails}>
+        <h2>{movieDetails?.title.toUpperCase()}</h2>
+        <div>
+          <div className={css.wrapperVoits}>
+            <p>Vote / Votes</p>
+            <p>
+              <span>{movieDetails?.vote_average}</span>
+              <span> / </span>
+              <span>{movieDetails?.vote_count}</span>
+            </p>
+          </div>
+          <div className={css.wrapperPopularity}>
+            <p>Popularity</p>
+            <p>{movieDetails?.popularity}</p>
+          </div>
+          <div className={css.wrapperTitle}>
+            <p>Original Title</p>
+            <p>{movieDetails?.original_title.toUpperCase()}</p>
+          </div>
+          <div className={css.wrapperGenre}>
+            <p>Genre</p>
+            <p>{movieDetails?.genres.map(genre => genre.name).join(', ')}</p>
+          </div>
+        </div>
+        <h3 className={css.about}>About</h3>
+        <p>{movieDetails?.overview}</p>
+      </div>
     </div>
-    </>
   );
 };
 

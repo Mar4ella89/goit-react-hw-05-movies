@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    padding-top: 30px;
+    width: 840px;
+    margin: auto;
+}
+
+.wrapperImg {
+min-width: 50%;
+}
+
+.wrapperDetails {
+    margin-left: 20px;
+}
+
+.wrapperVoits {
+    margin-top: 10px;
+    display: flex;
+}
+
+.wrapperPopularity {
+    margin-top: 10px;
+    display: flex;
+}
+
+.wrapperTitle {
+    margin-top: 10px;
+}
+
+.wrapperGenre {
+    margin-top: 10px;
+}
+
+.about {
+    margin-top: 10px;
+}
