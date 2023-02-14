@@ -1,5 +1,5 @@
 import MovieCardItem from './MovieCardItem/MovieCardItem';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import css from './MovieCardList.module.css';
 
@@ -19,15 +19,17 @@ const MovieCardList = ({ movieItems }) => {
   return <ul className={css.movieCardList}>{elements}</ul>;
 };
 
-// ImageGallery.propTypes = {
-//   showImage: PropTypes.func.isRequired,
-//   items: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       webformatURL: PropTypes.string.isRequired,
-//       largeImageURL: PropTypes.string.isRequired,
-//       id: PropTypes.number.isRequired,
-//     })
-//   ),
-// };
+MovieCardList.propTypes = {
+  movieItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      name: PropTypes.string,
+      poster_path: PropTypes.string,
+      release_date: PropTypes.string,
+      first_air_date: PropTypes.string,
+      id: PropTypes.number.isRequired,
+    })
+  ),
+};
 
 export default MovieCardList;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 // import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
@@ -17,7 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import css from './App.module.css';
 
 export const MovieSearch = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  //   const [searchQuery, setSearchQuery] = useState('');
   const [movieItems, setMovieItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,6 +26,11 @@ export const MovieSearch = () => {
   //   const [totalHits, setTotalHits] = useState(0);
   //   const [showModal, setShowModal] = useState(false);
   //   const [imgDetails, setImgDetails] = useState(null);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('search');
+
+  console.log(searchQuery);
 
   useEffect(() => {
     if (!searchQuery) {
@@ -53,7 +59,7 @@ export const MovieSearch = () => {
   }, [searchQuery, page]);
 
   const handleFormSubmit = searchQuery => {
-    setSearchQuery(searchQuery);
+    setSearchParams(searchQuery);
     setMovieItems([]);
     setPage(1);
   };
