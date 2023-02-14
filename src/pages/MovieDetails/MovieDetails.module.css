@@ -1,36 +1,50 @@
+.container {
+  padding-top: 30px;
+  width: 840px;
+  margin: auto;
+}
+
 .wrapper {
-    display: flex;
-    padding-top: 30px;
-    width: 840px;
-    margin: auto;
+  display: flex;
 }
 
 .wrapperImg {
-min-width: 50%;
+  min-width: 50%;
 }
 
 .wrapperDetails {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .wrapperVoits {
-    margin-top: 10px;
-    display: flex;
+  margin-top: 10px;
+  display: flex;
 }
 
 .wrapperPopularity {
-    margin-top: 10px;
-    display: flex;
+  margin-top: 10px;
+  display: flex;
 }
 
 .wrapperTitle {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .wrapperGenre {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .about {
-    margin-top: 10px;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #867ced;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }

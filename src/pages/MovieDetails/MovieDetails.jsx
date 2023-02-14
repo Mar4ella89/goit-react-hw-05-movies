@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import { getMovieById } from 'services/movieAPI';
 
@@ -8,6 +8,7 @@ import css from './MovieDetails.module.css';
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState();
   const { movieId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchGetMovieById = async () => {
@@ -27,6 +28,8 @@ const MovieDetails = () => {
   console.log(movieDetails);
 
   return (
+    <div className={css.container}>
+        <button className={css.button} onClick={()=>navigate(-1)}>Go back</button>
     <div className={css.wrapper}>
       <div className={css.wrapperImg}>
         <img
@@ -63,6 +66,11 @@ const MovieDetails = () => {
         <p>{movieDetails?.overview}</p>
       </div>
     </div>
+    <h3>Additional information</h3>
+    <Link to='cast'><p>Cast</p></Link>
+    <Link to='reviews'><p>Reviews</p></Link>
+    </div>
+    
   );
 };
 
