@@ -5,7 +5,7 @@ import css from './MovieCardItem.module.css';
 
 const MovieCardItem = ({ movieId, title, poster_path, release_date }) => {
   return (
-    <Link to={`/movies/${movieId}`}>
+    <Link to={`/movies/${movieId}`} key={movieId}>
       <li>
         <div>
           <img

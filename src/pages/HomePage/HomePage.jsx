@@ -8,7 +8,7 @@ import css from './HomePage.module.css';
 
 const HomePage = () => {
   const [movieItems, setMovieItems] = useState([]);
-  const [page, setPage] = useState(1);
+  //   const [page, setPage] = useState(1);
 
   useEffect(() => {
     //   if (!searchQuery) {
@@ -36,7 +36,7 @@ const HomePage = () => {
       }
     };
     fetchTrendingMovies();
-  }, [page]);
+  }, []);
 
   return (
     <>

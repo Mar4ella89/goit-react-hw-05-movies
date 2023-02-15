@@ -20,7 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export const MovieSearch = () => {
   //   const [searchQuery, setSearchQuery] = useState('');
   const [movieItems, setMovieItems] = useState([]);
-  const [loading, setLoading] = useState(false);
+  //   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   //   const [totalHits, setTotalHits] = useState(0);
@@ -39,7 +39,7 @@ export const MovieSearch = () => {
 
     const fetchSearchMovies = async () => {
       try {
-        setLoading(true);
+        // setLoading(true);
         const data = await searchMovie(searchQuery, page);
         console.log(data.results);
 
@@ -52,14 +52,14 @@ export const MovieSearch = () => {
       } catch (error) {
         setError(error.message);
       } finally {
-        setLoading(false);
+        // setLoading(false);
       }
     };
     fetchSearchMovies();
   }, [searchQuery, page]);
 
   const handleFormSubmit = searchQuery => {
-    setSearchParams({searchQuery});
+    setSearchParams({ searchQuery });
     setMovieItems([]);
     setPage(1);
   };
@@ -82,14 +82,15 @@ export const MovieSearch = () => {
     <>
       <MovieSearchForm onSubmit={handleFormSubmit} />
       <MovieCardList movieItems={movieItems} />
+      <ToastContainer autoClose={3000} />
+      {error && <p>An error has occurred. Please try again later...</p>}
     </>
     // <div className={css.App}>
     //   <Searchbar onSubmit={handleFormSubmit} />
-    //   <ToastContainer autoClose={3000} />
+
     //   <ImageGallery items={items} showImage={showImage} />
 
     //   {loading && <Loader />}
-    //   {error && <p>An error has occurred. Please try again later...</p>}
 
     //   {totalHits > items.length && (
     //     <Button text={'Load more'} onClick={loadMore} />

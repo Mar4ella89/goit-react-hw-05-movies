@@ -36,6 +36,10 @@ export const searchMovie = async (searchQuery, page) => {
   return data;
 };
 
+export const getMovieCast = async id => {
+  const { data } = await instance.get(`/movie/${id}/credits`);
+  return data;
+};
 
 // searchQueryImg.propTypes = {
 //   searchQuery: PropTypes.string.isRequired,
