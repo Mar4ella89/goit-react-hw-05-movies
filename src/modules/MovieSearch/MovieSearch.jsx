@@ -30,6 +30,8 @@ export const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('searchQuery');
 
+  console.log(searchQuery);
+
   useEffect(() => {
     if (!searchQuery) {
       return;
@@ -39,6 +41,7 @@ export const MovieSearch = () => {
       try {
         // setLoading(true);
         const data = await searchMovie(searchQuery, page);
+        console.log(data.results);
 
         if (data.results.length === 0) {
           toast.info(
@@ -65,6 +68,16 @@ export const MovieSearch = () => {
   //   setPage(prevPage => prevPage + 1);
   // };
 
+  //   const showImage = largeImageURL => {
+  //     setImgDetails(largeImageURL);
+  //     setShowModal(true);
+  //   };
+
+  //   const closeModal = () => {
+  //     setImgDetails(null);
+  //     setShowModal(false);
+  //   };
+
   return (
     <>
       <MovieSearchForm onSubmit={handleFormSubmit} />
@@ -72,9 +85,22 @@ export const MovieSearch = () => {
       <ToastContainer autoClose={3000} />
       {error && <p>An error has occurred. Please try again later...</p>}
     </>
+    // <div className={css.App}>
+    //   <Searchbar onSubmit={handleFormSubmit} />
 
     //   <ImageGallery items={items} showImage={showImage} />
 
     //   {loading && <Loader />}
+
+    //   {totalHits > items.length && (
+    //     <Button text={'Load more'} onClick={loadMore} />
+    //   )}
+
+    //   {showModal && (
+    //     <Modal close={closeModal}>
+    //       <ImageDetails {...imgDetails} />
+    //     </Modal>
+    //   )}
+    // </div>
   );
 };

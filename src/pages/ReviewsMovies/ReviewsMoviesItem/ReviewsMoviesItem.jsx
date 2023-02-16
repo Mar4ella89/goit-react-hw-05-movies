@@ -4,7 +4,7 @@ import css from './ReviewsMoviesItem.module.css';
 
 const ReviewsMoviesItem = ({ author, authorDetails, content, createdAt }) => {
   const defaultImg = process.env.PUBLIC_URL + '/avatar.jpg ';
-  //   console.log(authorDetails.avatar_path.slice(1));
+  
   return (
     <li className={css.reviewsItem}>
       <div className={css.reviewsUserInfo}>

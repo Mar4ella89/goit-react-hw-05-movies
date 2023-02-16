@@ -8,3 +8,15 @@
     content: "|";
     margin: 0 4px;
 }
+
+.movieCardImg {
+    height: 605px;
+    object-fit: cover;
+    transition: -webkit-transform .25s cubic-bezier(.4,0,.2,1);
+    transition: transform .25s cubic-bezier(.4,0,.2,1);
+    transition: transform .25s cubic-bezier(.4,0,.2,1),-webkit-transform .25s cubic-bezier(.4,0,.2,1);
+    width: 100%;
+}
+/* .movieCardItem {
+    width: 100%;
+} */

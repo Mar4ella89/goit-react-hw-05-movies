@@ -8,9 +8,9 @@ const MovieCardItem = ({ movieId, title, poster_path, release_date }) => {
 
   return (
     <Link to={`/movies/${movieId}`}>
-      <li>
+      <li className={css.movieCardItem}>
         <div>
-          <img
+          <img className={css.movieCardImg}
             width={355}
             height={532}
             src={

@@ -43,7 +43,7 @@ const MovieSearchForm = ({ onSubmit }) => {
             onChange={handleNameChange}
             autoComplete="off"
             autoFocus
-            placeholder="Search images and photos"
+            placeholder="Search movies"
           />
         </form>
       </header>
