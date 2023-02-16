@@ -32,7 +32,8 @@ const MovieDetails = () => {
       <button
         className={css.button}
         onClick={() => {
-          navigate(-1);
+          // navigate(-1);
+          navigate('/movies', { replace: true });
         }}
       >
         Go back
