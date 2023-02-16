@@ -1,7 +1,7 @@
 .castList {
     flex-wrap: wrap;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     margin-top: 30px;
     
 }

@@ -20,3 +20,7 @@ max-width: 80px;
     text-align: right;
     margin-bottom: 30px;
 }
+
+.reviewsUserInfo {
+    max-width: 80px;
+}

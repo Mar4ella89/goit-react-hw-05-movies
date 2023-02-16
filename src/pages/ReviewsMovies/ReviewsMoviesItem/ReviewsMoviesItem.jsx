@@ -7,7 +7,7 @@ const ReviewsMoviesItem = ({ author, authorDetails, content, createdAt }) => {
   //   console.log(authorDetails.avatar_path.slice(1));
   return (
     <li className={css.reviewsItem}>
-      <div>
+      <div className={css.reviewsUserInfo}>
         <img
           className={css.reviewsUserAvatar}
           width={80}
@@ -19,7 +19,7 @@ const ReviewsMoviesItem = ({ author, authorDetails, content, createdAt }) => {
           }
           alt=""
         />
-        {author}
+        <p className={css.reviewsAutor}>{author}</p>
       </div>
       <div className={css.contentWrapper}>
         <p className={css.reviewsCreatedAt}>{createdAt.slice(0, 10)}</p>
