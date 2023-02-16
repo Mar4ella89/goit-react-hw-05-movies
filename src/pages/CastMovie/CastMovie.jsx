@@ -35,10 +35,10 @@ const CastMovie = () => {
     )
   );
 
-  return elements===[]?
+  return elements?.length === 0 ? <p>We don't have any cast for this movie</p> :
   <ul className={css.castList}>
     {elements} 
-  </ul> : <p>We don't have any cast for this movie</p>;
+  </ul> ;
   
 };
 

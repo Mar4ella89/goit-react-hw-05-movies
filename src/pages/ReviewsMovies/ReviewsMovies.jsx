@@ -38,11 +38,10 @@ const ReviewsMovies = () => {
   );
   console.log(elements);
 
-  return (
-    elements===[]?
-    <ul className={css.reviewsList}>
-      {elements} 
-    </ul> : <p>We don't have any reviews for this movie</p>
+  return elements?.length === 0 ? (
+    <p>We don't have any reviews for this movie</p>
+  ) : (
+    <ul className={css.reviewsList}>{elements}</ul>
   );
 };
 
