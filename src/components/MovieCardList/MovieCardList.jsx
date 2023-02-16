@@ -8,6 +8,7 @@ const MovieCardList = ({ movieItems }) => {
   const elements = movieItems.map(
     ({ id, title, name, poster_path, release_date, first_air_date }) => (
       <MovieCardItem
+        key={id}
         movieId={id}
         title={title ?? name}
         poster_path={poster_path}
