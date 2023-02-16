@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import css from './MovieCardItem.module.css';
 
 const MovieCardItem = ({ movieId, title, poster_path, release_date }) => {
   const defaultImgMovie = process.env.PUBLIC_URL + '/movie.jpg ';
-
+const location = useLocation();
   return (
-    <Link to={`/movies/${movieId}`}>
+    <Link to={`/movies/${movieId}`} state={{from: location}}>
       <li className={css.movieCardItem}>
         <div>
           <img className={css.movieCardImg}

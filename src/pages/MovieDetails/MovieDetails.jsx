@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
+import { useParams, useNavigate, NavLink, Outlet, useLocation } from 'react-router-dom';
 
 import { getMovieById } from 'services/movieAPI';
 
@@ -9,6 +9,8 @@ const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState();
   const { movieId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation()
+  const from = location.state?.from || '/'
 
   useEffect(() => {
     const fetchGetMovieById = async () => {
@@ -31,10 +33,7 @@ const MovieDetails = () => {
     <div className={css.container}>
       <button
         className={css.button}
-        onClick={() => {
-          // navigate(-1);
-          navigate('/movies', { replace: true });
-        }}
+        onClick={() => {navigate(from)}}
       >
         Go back
       </button>
@@ -75,10 +74,10 @@ const MovieDetails = () => {
         </div>
       </div>
       <h3 className={css.addInfo}>Additional information</h3>
-      <NavLink to="cast" className={css.addInfoCast}>
+      <NavLink to="cast" state={{from}} className={css.addInfoCast}>
         <p>Cast</p>
       </NavLink>
-      <NavLink to="reviews" className={css.addInfoReviews}>
+      <NavLink to="reviews" state={{from}} className={css.addInfoReviews}>
         <p>Reviews</p>
       </NavLink>
       <Outlet />
