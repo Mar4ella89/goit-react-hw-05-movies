@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate, NavLink, Outlet, useLocation } from 'react-router-dom';
+import {
+  useParams,
+  useNavigate,
+  NavLink,
+  Outlet,
+  useLocation,
+} from 'react-router-dom';
 
 import { getMovieById } from 'services/movieAPI';
 
@@ -9,8 +15,8 @@ const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState();
   const { movieId } = useParams();
   const navigate = useNavigate();
-  const location = useLocation()
-  const from = location.state?.from || '/'
+  const location = useLocation();
+  const from = location.state?.from || '/';
 
   useEffect(() => {
     const fetchGetMovieById = async () => {
@@ -27,13 +33,15 @@ const MovieDetails = () => {
     fetchGetMovieById();
   }, [movieId]);
 
-  console.log(movieDetails);
+  const defaultImgMovie = process.env.PUBLIC_URL + '/movie.jpg ';
 
   return (
     <div className={css.container}>
       <button
         className={css.button}
-        onClick={() => {navigate(from)}}
+        onClick={() => {
+          navigate(from);
+        }}
       >
         Go back
       </button>
@@ -41,7 +49,11 @@ const MovieDetails = () => {
         <div className={css.wrapperImg}>
           <img
             // width={640}
-            src={`https://image.tmdb.org/t/p/w500${movieDetails?.poster_path}`}
+            src={
+              movieDetails?.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
+                : defaultImgMovie
+            }
             alt={movieDetails?.title}
           />
         </div>
@@ -74,10 +86,10 @@ const MovieDetails = () => {
         </div>
       </div>
       <h3 className={css.addInfo}>Additional information</h3>
-      <NavLink to="cast" state={{from}} className={css.addInfoCast}>
+      <NavLink to="cast" state={{ from }} className={css.addInfoCast}>
         <p>Cast</p>
       </NavLink>
-      <NavLink to="reviews" state={{from}} className={css.addInfoReviews}>
+      <NavLink to="reviews" state={{ from }} className={css.addInfoReviews}>
         <p>Reviews</p>
       </NavLink>
       <Outlet />

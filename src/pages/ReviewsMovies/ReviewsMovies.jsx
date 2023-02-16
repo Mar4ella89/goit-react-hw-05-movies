@@ -36,8 +36,14 @@ const ReviewsMovies = () => {
       />
     )
   );
+  console.log(elements);
 
-  return <ul className={css.reviewsList}>{elements}</ul>;
+  return (
+    elements===[]?
+    <ul className={css.reviewsList}>
+      {elements} 
+    </ul> : <p>We don't have any reviews for this movie</p>
+  );
 };
 
 export default ReviewsMovies;

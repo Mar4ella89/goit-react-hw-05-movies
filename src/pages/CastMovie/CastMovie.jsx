@@ -35,7 +35,11 @@ const CastMovie = () => {
     )
   );
 
-  return <ul className={css.castList}>{elements}</ul>;
+  return elements===[]?
+  <ul className={css.castList}>
+    {elements} 
+  </ul> : <p>We don't have any cast for this movie</p>;
+  
 };
 
 export default CastMovie;
