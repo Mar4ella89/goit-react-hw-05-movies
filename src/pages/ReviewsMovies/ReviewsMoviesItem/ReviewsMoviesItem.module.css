@@ -1,0 +1,22 @@
+
+.reviewsItem {
+    padding: 15px;
+        display: flex;
+        box-shadow: 0 5px 10px 0 rgb(0 0 0 / 50%);
+        border-radius: 4px;
+        margin-bottom: 20px;
+}
+
+.contentWrapper {
+    width: 100%;
+    margin-left: 30px;
+}
+
+.reviewsUserAvatar {
+max-width: 80px;
+}
+
+.reviewsCreatedAt {
+    text-align: right;
+    margin-bottom: 30px;
+}

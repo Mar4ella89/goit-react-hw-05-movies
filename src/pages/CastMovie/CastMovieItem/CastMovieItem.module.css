@@ -1,0 +1,16 @@
+.itemName {
+    margin-top: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    
+}
+
+.itemСharacter {
+    
+font-size: 14px;
+}
+
+.castItem {
+box-shadow: 0 5px 10px 0 rgb(0 0 0 / 50%);
+padding: 5px;
+}

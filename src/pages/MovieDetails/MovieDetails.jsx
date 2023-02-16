@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link, Outlet } from 'react-router-dom';
+import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 
 import { getMovieById } from 'services/movieAPI';
 
@@ -73,13 +73,13 @@ const MovieDetails = () => {
           <p>{movieDetails?.overview}</p>
         </div>
       </div>
-      <h3>Additional information</h3>
-      <Link to="cast">
+      <h3 className={css.addInfo}>Additional information</h3>
+      <NavLink to="cast" className={css.addInfoCast}>
         <p>Cast</p>
-      </Link>
-      <Link to="reviews">
+      </NavLink>
+      <NavLink to="reviews" className={css.addInfoReviews}>
         <p>Reviews</p>
-      </Link>
+      </NavLink>
       <Outlet />
     </div>
   );

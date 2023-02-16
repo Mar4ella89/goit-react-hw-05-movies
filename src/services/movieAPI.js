@@ -41,6 +41,18 @@ export const getMovieCast = async id => {
   return data;
 };
 
+export const getMovieReview = async (id, page) => {
+  const { data } = await instance.get(`/movie/${id}/reviews`, {
+    params: {
+      page,
+    },
+  });
+  console.log(data);
+  return data;
+};
+
+// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
+
 // searchQueryImg.propTypes = {
 //   searchQuery: PropTypes.string.isRequired,
 // };

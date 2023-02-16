@@ -4,12 +4,20 @@ import PropTypes from 'prop-types';
 import css from './MovieCardItem.module.css';
 
 const MovieCardItem = ({ movieId, title, poster_path, release_date }) => {
+  const defaultImgMovie = process.env.PUBLIC_URL + '/movie.jpg ';
+
   return (
-    <Link to={`/movies/${movieId}`} >
+    <Link to={`/movies/${movieId}`}>
       <li>
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/w400${poster_path}`}
+            width={355}
+            height={532}
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w400${poster_path}`
+                : defaultImgMovie
+            }
             alt={title}
             loading="lazy"
           />

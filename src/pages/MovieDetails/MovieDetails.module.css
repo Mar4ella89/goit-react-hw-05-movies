@@ -48,3 +48,31 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.addInfo {
+  margin-top: 15px;
+  text-decoration: none;
+  margin-bottom: 15px;
+
+}
+
+.addInfoCast {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #867ced
+}
+.addInfoReviews {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #867ced;
+}
+
+.addInfoCast:global(.active) {
+  color: #3a3587
+}
+
+.addInfoReviews:global(.active) {
+  color: #3a3587
+}
