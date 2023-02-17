@@ -31,10 +31,9 @@ export const MovieSearch = () => {
             'The search has not given any results. Try to find something else'
           );
         }
-        setMovieItems(prevMovieItem => [...prevMovieItem, ...data.results]);
+        setMovieItems([...data.results]);
       } catch (error) {
         setError(error.message);
-      } finally {
       }
     };
     fetchSearchMovies();
