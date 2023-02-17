@@ -6,7 +6,6 @@ import {
   Outlet,
   useLocation,
 } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import { getMovieById } from 'services/movieAPI';
 
