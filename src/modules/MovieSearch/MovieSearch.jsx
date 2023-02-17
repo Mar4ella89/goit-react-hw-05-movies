@@ -7,21 +7,17 @@ import MovieSearchForm from 'modules/MovieSearchForm/MovieSearchForm';
 import { searchMovie } from 'services/movieAPI';
 import MovieCardList from 'components/MovieCardList/MovieCardList';
 
-// import Button from 'components/Button/Button';
-
-
 import 'react-toastify/dist/ReactToastify.css';
 
 export const MovieSearch = () => {
-  
   const [movieItems, setMovieItems] = useState([]);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-    
+
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('searchQuery');
 
-    useEffect(() => {
+  useEffect(() => {
     if (!searchQuery) {
       return;
     }
@@ -29,7 +25,7 @@ export const MovieSearch = () => {
     const fetchSearchMovies = async () => {
       try {
         const data = await searchMovie(searchQuery, page);
-        
+
         if (data.results.length === 0) {
           toast.info(
             'The search has not given any results. Try to find something else'
@@ -39,7 +35,6 @@ export const MovieSearch = () => {
       } catch (error) {
         setError(error.message);
       } finally {
-        
       }
     };
     fetchSearchMovies();
@@ -51,18 +46,12 @@ export const MovieSearch = () => {
     setPage(1);
   };
 
-  // const loadMore = () => {
-  //   setPage(prevPage => prevPage + 1);
-  // };
-
-   return (
+  return (
     <>
       <MovieSearchForm onSubmit={handleFormSubmit} />
       <MovieCardList movieItems={movieItems} />
       <ToastContainer autoClose={3000} />
       {error && <p>An error has occurred. Please try again later...</p>}
     </>
-  
-   )
+  );
 };
-

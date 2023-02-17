@@ -19,8 +19,6 @@ const ReviewsMovies = () => {
         setReviewMovie(data.results);
       } catch ({ response }) {
         console.log(response.data.message);
-      } finally {
-        //   setLoading(false);
       }
     };
     fetchGetMovieReview();
@@ -37,7 +35,7 @@ const ReviewsMovies = () => {
       />
     )
   );
-  
+
   return elements?.length === 0 ? (
     <p>We don't have any reviews for this movie</p>
   ) : (

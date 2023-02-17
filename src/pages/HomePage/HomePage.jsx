@@ -8,21 +8,15 @@ import css from './HomePage.module.css';
 
 const HomePage = () => {
   const [movieItems, setMovieItems] = useState([]);
-  //   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    
     const fetchTrendingMovies = async () => {
       try {
-        
         const data = await trendingMovie();
 
-         setMovieItems(data.results);
-        //   setItems(prevItems => [...prevItems, ...data.hits]);
-      } catch ({response}) {
+        setMovieItems(data.results);
+      } catch ({ response }) {
         console.log(response.data.message);
-      } finally {
-        
       }
     };
     fetchTrendingMovies();

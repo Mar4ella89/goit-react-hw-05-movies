@@ -26,9 +26,6 @@ const MovieDetails = () => {
         setMovieDetails(data);
       } catch ({ response }) {
         console.log(response.data.message);
-        //   setError(error.message);
-      } finally {
-        //   setLoading(false);
       }
     };
     fetchGetMovieById();
@@ -49,7 +46,6 @@ const MovieDetails = () => {
       <div className={css.wrapper}>
         <div className={css.wrapperImg}>
           <img
-            // width={640}
             src={
               movieDetails?.poster_path
                 ? `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
@@ -99,7 +95,6 @@ const MovieDetails = () => {
 };
 
 MovieDetails.propTypes = {
-  
   poster_path: PropTypes.string,
   original_title: PropTypes.string,
   title: PropTypes.string,
@@ -108,7 +103,6 @@ MovieDetails.propTypes = {
   vote_count: PropTypes.string,
   genre: PropTypes.array,
   popularity: PropTypes.string,
-  
 };
 
 export default MovieDetails;

@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import css from './CastMovieItem.module.css';
 
@@ -22,6 +22,10 @@ const CastMovieItem = ({ name, profilePath, character }) => {
   );
 };
 
-export default CastMovieItem;
+CastMovieItem.propTypes = {
+  name: PropTypes.string,
+  profilePath: PropTypes.string,
+  character: PropTypes.string,
+};
 
-// CastMovieItem.defaultProps = {};
+export default CastMovieItem;

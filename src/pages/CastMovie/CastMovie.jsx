@@ -18,8 +18,6 @@ const CastMovie = () => {
         setCastMovie(data.cast);
       } catch ({ response }) {
         console.log(response.data.message);
-      } finally {
-        //   setLoading(false);
       }
     };
     fetchGetMovieCast();
@@ -36,11 +34,11 @@ const CastMovie = () => {
     )
   );
 
-  return elements?.length === 0 ? <p>We don't have any cast for this movie</p> :
-  <ul className={css.castList}>
-    {elements} 
-  </ul> ;
-  
+  return elements?.length === 0 ? (
+    <p>We don't have any cast for this movie</p>
+  ) : (
+    <ul className={css.castList}>{elements}</ul>
+  );
 };
 
 CastMovie.propTypes = {
@@ -50,6 +48,5 @@ CastMovie.propTypes = {
   original_name: PropTypes.string,
   profile_path: PropTypes.string,
 };
-
 
 export default CastMovie;
