@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import { getMovieReview } from 'services/movieAPI';
 import ReviewsMoviesCard from '../../components/ReviewsMoviesCard/ReviewsMoviesCard';
-
-// import css from './ReviewsMovies.module.css';
 
 const ReviewsMovies = () => {
   const [reviewMovie, setReviewMovie] = useState();
@@ -29,14 +26,6 @@ const ReviewsMovies = () => {
   ) : (
     <ReviewsMoviesCard reviewMovie={reviewMovie} />
   );
-};
-
-ReviewsMovies.propTypes = {
-  id: PropTypes.string,
-  author: PropTypes.string,
-  created_at: PropTypes.string,
-  content: PropTypes.string,
-  author_details: PropTypes.array,
 };
 
 export default ReviewsMovies;
