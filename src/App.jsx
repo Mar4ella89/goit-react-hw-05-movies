@@ -4,6 +4,8 @@ import Loader from 'components/Loader/Loader';
 
 import Navbar from './components/Navbar/Navbar';
 
+import css from './App.module.css';
+
 const HomePage = lazy(()=>import ('pages/HomePage/HomePage'));
 const MoviesPage = lazy(()=>import ('./pages/MoviesPage/MoviesPage'));
 const MovieDetails = lazy(()=>import ('pages/MovieDetails/MovieDetails'));
@@ -15,7 +17,7 @@ export const App = () => {
     <div>
       <BrowserRouter>
         <Navbar />
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader className={css.loader}/> }>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />

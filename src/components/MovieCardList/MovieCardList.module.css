@@ -1,5 +1,5 @@
 .movieCardList {
-    grid-gap: 16px;
+    grid-gap: 12px;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
     list-style: none;
