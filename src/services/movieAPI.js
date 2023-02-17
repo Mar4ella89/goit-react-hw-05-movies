@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -7,9 +7,7 @@ const instance = axios.create({
     api_key: 'b331236c37988e13f653df9937f18de4',
     language: 'en-US',
     include_adult: false,
-    // total_results: 10,
-    // total_pages: 10,
-    // per_page: 12,
+    
   },
 });
 
@@ -47,14 +45,25 @@ export const getMovieReview = async (id, page) => {
       page,
     },
   });
-  console.log(data);
-  return data;
+   return data;
 };
 
-// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
 
-// searchQueryImg.propTypes = {
-//   searchQuery: PropTypes.string.isRequired,
-// };
+getMovieById.propTypes = {
+  id: PropTypes.string.isRequired,
+};
 
-// export default trendingMovie;
+searchMovie.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+  page: PropTypes.string.isRequired,
+};
+
+getMovieCast.propTypes = {
+  id: PropTypes.string.isRequired,
+};
+
+getMovieReview.propTypes = {
+  id: PropTypes.string.isRequired,
+  page: PropTypes.string.isRequired,
+};
+

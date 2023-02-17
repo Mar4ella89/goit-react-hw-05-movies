@@ -11,28 +11,18 @@ const HomePage = () => {
   //   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    //   if (!searchQuery) {
-    //     return;
-    //   }
-
+    
     const fetchTrendingMovies = async () => {
       try {
-        //   setLoading(true);
+        
         const data = await trendingMovie();
 
-        console.log(data.results);
-
-        // setMoviesTranding(prevMoviesTranding => [
-        //   ...prevMoviesTranding,
-        //   ...data.results,
-        // ]);
-
-        setMovieItems(data.results);
+         setMovieItems(data.results);
         //   setItems(prevItems => [...prevItems, ...data.hits]);
-      } catch (error) {
-        //   setError(error.message);
+      } catch ({response}) {
+        console.log(response.data.message);
       } finally {
-        //   setLoading(false);
+        
       }
     };
     fetchTrendingMovies();

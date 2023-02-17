@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getMovieReview } from 'services/movieAPI';
 import ReviewsMoviesItem from './ReviewsMoviesItem/ReviewsMoviesItem';
@@ -36,13 +37,20 @@ const ReviewsMovies = () => {
       />
     )
   );
-  console.log(elements);
-
+  
   return elements?.length === 0 ? (
     <p>We don't have any reviews for this movie</p>
   ) : (
     <ul className={css.reviewsList}>{elements}</ul>
   );
+};
+
+ReviewsMovies.propTypes = {
+  id: PropTypes.string,
+  author: PropTypes.string,
+  created_at: PropTypes.string,
+  content: PropTypes.string,
+  author_details: PropTypes.array,
 };
 
 export default ReviewsMovies;

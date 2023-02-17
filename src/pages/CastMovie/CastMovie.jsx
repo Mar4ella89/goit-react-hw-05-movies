@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getMovieCast } from 'services/movieAPI';
 import CastMovieItem from './CastMovieItem/CastMovieItem';
@@ -41,5 +42,14 @@ const CastMovie = () => {
   </ul> ;
   
 };
+
+CastMovie.propTypes = {
+  cast_id: PropTypes.string,
+  character: PropTypes.string,
+  name: PropTypes.string,
+  original_name: PropTypes.string,
+  profile_path: PropTypes.string,
+};
+
 
 export default CastMovie;

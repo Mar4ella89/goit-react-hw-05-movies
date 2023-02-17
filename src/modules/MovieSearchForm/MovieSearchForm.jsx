@@ -2,7 +2,7 @@ import { ImSearch } from 'react-icons/im';
 import { toast } from 'react-toastify';
 
 import { useState } from 'react';
-//     import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import css from './MovieSearchForm.module.css';
 
@@ -49,6 +49,10 @@ const MovieSearchForm = ({ onSubmit }) => {
       </header>
     </div>
   );
+};
+
+MovieSearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default MovieSearchForm;

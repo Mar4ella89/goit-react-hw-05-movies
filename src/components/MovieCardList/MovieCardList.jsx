@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import css from './MovieCardList.module.css';
 
 const MovieCardList = ({ movieItems }) => {
-  console.log(movieItems);
+  
   const elements = movieItems.map(
     ({ id, title, name, poster_path, release_date, first_air_date }) => (
       <MovieCardItem

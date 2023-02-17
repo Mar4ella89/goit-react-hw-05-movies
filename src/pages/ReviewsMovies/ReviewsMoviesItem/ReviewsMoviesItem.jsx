@@ -1,10 +1,10 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import css from './ReviewsMoviesItem.module.css';
 
 const ReviewsMoviesItem = ({ author, authorDetails, content, createdAt }) => {
   const defaultImg = process.env.PUBLIC_URL + '/avatar.jpg ';
-  
+  console.log(authorDetails)
   return (
     <li className={css.reviewsItem}>
       <div className={css.reviewsUserInfo}>
@@ -29,6 +29,20 @@ const ReviewsMoviesItem = ({ author, authorDetails, content, createdAt }) => {
   );
 };
 
+ReviewsMoviesItem.propTypes = {
+  
+  author: PropTypes.string,
+  createdAt: PropTypes.string,
+  content: PropTypes.string,
+  authorDetails:  PropTypes.shape({
+      avatar_path: PropTypes.string,
+      name: PropTypes.string,
+      rating: PropTypes.number,
+      username: PropTypes.string,
+    })
+  
+};
+
 export default ReviewsMoviesItem;
 
-// CastMovieItem.defaultProps = {};
+

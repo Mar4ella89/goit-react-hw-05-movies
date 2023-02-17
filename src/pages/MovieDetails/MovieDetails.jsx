@@ -6,6 +6,7 @@ import {
   Outlet,
   useLocation,
 } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getMovieById } from 'services/movieAPI';
 
@@ -95,6 +96,19 @@ const MovieDetails = () => {
       <Outlet />
     </div>
   );
+};
+
+MovieDetails.propTypes = {
+  
+  poster_path: PropTypes.string,
+  original_title: PropTypes.string,
+  title: PropTypes.string,
+  overview: PropTypes.string,
+  vote_average: PropTypes.string,
+  vote_count: PropTypes.string,
+  genre: PropTypes.array,
+  popularity: PropTypes.string,
+  
 };
 
 export default MovieDetails;
