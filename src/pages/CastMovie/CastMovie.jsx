@@ -3,9 +3,7 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { getMovieCast } from 'services/movieAPI';
-import CastMovieItem from './CastMovieItem/CastMovieItem';
-
-import css from './CastMovie.module.css';
+import CastMovieCard from '../../components/CastMovieCard/CastMovieCard';
 
 const CastMovie = () => {
   const [castMovie, setCastMovie] = useState();
@@ -23,21 +21,10 @@ const CastMovie = () => {
     fetchGetMovieCast();
   }, [movieId]);
 
-  const elements = castMovie?.map(
-    ({ cast_id, character, name, original_name, profile_path }) => (
-      <CastMovieItem
-        key={cast_id}
-        name={name ?? original_name}
-        profilePath={profile_path}
-        character={character}
-      />
-    )
-  );
-
-  return elements?.length === 0 ? (
+  return castMovie?.length === 0 ? (
     <p>We don't have any cast for this movie</p>
   ) : (
-    <ul className={css.castList}>{elements}</ul>
+    <CastMovieCard castMovie={castMovie} />
   );
 };
 

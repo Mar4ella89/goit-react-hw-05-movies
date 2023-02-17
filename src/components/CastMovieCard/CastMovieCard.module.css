@@ -14,3 +14,11 @@ font-size: 14px;
 box-shadow: 0 5px 10px 0 rgb(0 0 0 / 50%);
 padding: 5px;
 }
+
+.castList {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+
+}

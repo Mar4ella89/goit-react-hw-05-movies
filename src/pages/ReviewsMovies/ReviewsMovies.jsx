@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { getMovieReview } from 'services/movieAPI';
-import ReviewsMoviesItem from './ReviewsMoviesItem/ReviewsMoviesItem';
+import ReviewsMoviesCard from '../../components/ReviewsMoviesCard/ReviewsMoviesCard';
 
-import css from './ReviewsMovies.module.css';
+// import css from './ReviewsMovies.module.css';
 
 const ReviewsMovies = () => {
   const [reviewMovie, setReviewMovie] = useState();
@@ -24,22 +24,10 @@ const ReviewsMovies = () => {
     fetchGetMovieReview();
   }, [movieId]);
 
-  const elements = reviewMovie?.map(
-    ({ id, author_details, author, created_at, content }) => (
-      <ReviewsMoviesItem
-        key={id}
-        author={author}
-        authorDetails={author_details}
-        content={content}
-        createdAt={created_at}
-      />
-    )
-  );
-
-  return elements?.length === 0 ? (
+  return reviewMovie?.length === 0 ? (
     <p>We don't have any reviews for this movie</p>
   ) : (
-    <ul className={css.reviewsList}>{elements}</ul>
+    <ReviewsMoviesCard reviewMovie={reviewMovie} />
   );
 };
 
